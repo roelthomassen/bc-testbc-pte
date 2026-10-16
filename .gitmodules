@@ -1,0 +1,3 @@
+[submodule ".bcquality"]
+	path = .bcquality
+	url = https://github.com/microsoft/BCQuality.git
