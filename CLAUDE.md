@@ -53,7 +53,7 @@ review findings).
 - Customer: <Attitutor> - <Test customer for project ClickUp, GitHub and BC>.
 - LIVE runs BC <28.5>, localisation BE.
 - Affix/prefix: <ATT>. Object ID range: 50100..50149 (see app.json).
-- Source layout (AL-Go): App/ for the app, Test/ for the test app,
+- Source layout (AL-Go): Customer Extensions/ for the app, Customer Extensions Test/ for the test app,
  docs/ for feature docs, docs/specs/ for task specs, docs/uat/ for UAT scripts.
 - Permission set: <ATT CUSTOM> ALL - every new object goes in it.
  
