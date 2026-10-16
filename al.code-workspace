@@ -7,8 +7,29 @@
       "path": "Customer Extensions Test"
     },
     {
+      "path": "Customer Extensions Permission Test"
+    },
+    {
       "path": ".AL-Go"
     }
   ],
-  "settings": {}
+  "settings": {},
+  "launch": {
+    "configurations": [
+      {
+        "name": "Microsoft cloud sandbox",
+        "request": "launch",
+        "type": "al",
+        "environmentType": "Sandbox",
+        "environmentName": "DEV-RT",
+        "tenant": "cf8bb013-59a8-4685-a6ec-60ed1eb4efeb",
+        "startupObjectId": 22,
+        "startupObjectType": "Page",
+        "breakOnError": "All",
+        "launchBrowser": true,
+        "enableLongRunningSqlStatements": true,
+        "enableSqlInformationDebugger": true
+      }
+    ]
+  }
 }

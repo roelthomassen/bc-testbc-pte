@@ -1,5 +1,6 @@
 {
     "version": "0.2.0",
-    "configurations": [
-    ]
+    "environmentType": "Sandbox",
+    "environmentName": "DEV-RT",
+    "tenant": "cf8bb013-59a8-4685-a6ec-60ed1eb4efeb"
 }

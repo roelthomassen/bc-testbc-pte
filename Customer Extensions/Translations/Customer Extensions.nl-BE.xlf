@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="nl-BE" original="Customer Extensions">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 635157464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Line Attribute</source>
+          <target state="translated">Documentregelkenmerk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - NamedType 739974523" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute value %1 does not exist for attribute %2.</source>
+          <target state="translated">Kenmerkwaarde %1 bestaat niet voor kenmerk %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = attribute value ID, %2 = attribute ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - NamedType AttributeValueNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - NamedType 3970639264" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item attribute %1 is blocked and cannot be assigned to a document line.</source>
+          <target state="translated">Artikelkenmerk %1 is geblokkeerd en kan niet aan een documentregel worden toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - NamedType ItemAttributeBlockedErr</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - NamedType 3573565233" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value %1 of item attribute %2 is blocked and cannot be assigned to a document line.</source>
+          <target state="translated">Waarde %1 van artikelkenmerk %2 is geblokkeerd en kan niet aan een documentregel worden toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = item attribute value, %2 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - NamedType ItemAttributeValueBlockedErr</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - NamedType 3847532890" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document line attributes cannot be stored for table %1.</source>
+          <target state="translated">Documentregelkenmerken kunnen niet worden opgeslagen voor tabel %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - NamedType UnsupportedTableErr</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1692399443 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item attribute.</source>
+          <target state="translated">Hiermee wordt het artikelkenmerk opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Attribute ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target state="translated">Kenmerk-id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2619559758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the item attribute. When you select a value, its text and the unit of measure of the attribute are stored on the line.</source>
+          <target state="translated">Hiermee wordt de waarde van het artikelkenmerk opgegeven. Wanneer u een waarde selecteert, worden de tekst ervan en de eenheid van het kenmerk op de regel opgeslagen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Attribute Value ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2619559758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute Value ID</source>
+          <target state="translated">Kenmerkwaarde-id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Attribute Value ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3302998458 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the occurrence of the document number. This is used for archived documents.</source>
+          <target state="translated">Hiermee wordt het voorkomen van het documentnummer opgegeven. Dit wordt gebruikt voor gearchiveerde documenten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Doc. No. Occurrence - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3302998458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Doc. No. Occurrence</source>
+          <target state="translated">Doc.-nr. voorkomen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Doc. No. Occurrence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the document that contains the line.</source>
+          <target state="translated">Hiermee wordt het nummer opgegeven van het document dat de regel bevat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <target state="translated">Documentnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document type of the line, as the value of the document type of the source table. For posted lines, this is 0.</source>
+          <target state="translated">Hiermee wordt de documentsoort van de regel opgegeven, als de waarde van de documentsoort van de brontabel. Voor geboekte regels is dit 0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <target state="translated">Documentsoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the document line.</source>
+          <target state="translated">Hiermee wordt het nummer van de documentregel opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target state="translated">Regelnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1461151337 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute must have a value.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk een waarde moet hebben.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Mandatory - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1461151337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mandatory</source>
+          <target state="translated">Verplicht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Mandatory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2545571258 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute was changed manually on the line.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk manueel op de regel is gewijzigd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Manually Modified - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2545571258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manually Modified</source>
+          <target state="translated">Manueel gewijzigd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Manually Modified - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 4154341761 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order in which the attributes of the line are shown.</source>
+          <target state="translated">Hiermee wordt de volgorde opgegeven waarin de kenmerken van de regel worden getoond.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Sequence - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 4154341761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence</source>
+          <target state="translated">Volgorde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Sequence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1147795478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute is shown on documents for the customer.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op documenten voor de klant.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Show on Customer Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1147795478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show on Customer Documents</source>
+          <target state="translated">Tonen op klantdocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Show on Customer Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 4065503215 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute is shown on production documents.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op productiedocumenten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Show on Production Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 4065503215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show on Production Documents</source>
+          <target state="translated">Tonen op productiedocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Show on Production Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2397723431 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies where the attribute comes from: the item, the variant, the order or the parent line.</source>
+          <target state="translated">Hiermee wordt opgegeven waar het kenmerk vandaan komt: het artikel, de variant, de order of de hoofdregel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Source - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 2397723431 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source</source>
+          <target state="translated">Bron</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Source - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3135334477 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the table that contains the document line.</source>
+          <target state="translated">Hiermee wordt de id opgegeven van de tabel die de documentregel bevat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Table ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 3135334477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table ID</source>
+          <target state="translated">Tabel-id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Table ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unit of measure of the attribute at the moment it was assigned to the line. Later changes to the item attribute do not change this value.</source>
+          <target state="translated">Hiermee wordt de eenheid van het kenmerk opgegeven op het moment dat het aan de regel werd toegewezen. Latere wijzigingen van het artikelkenmerk wijzigen deze waarde niet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1920046521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target state="translated">Eenheid</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1131619133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the attribute at the moment it was assigned to the line. Later changes to the item attribute value do not change this value.</source>
+          <target state="translated">Hiermee wordt de waarde van het kenmerk opgegeven op het moment dat het aan de regel werd toegewezen. Latere wijzigingen van de artikelkenmerkwaarde wijzigen deze waarde niet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target state="translated">Waarde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1684721775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the archived document.</source>
+          <target state="translated">Hiermee wordt de versie van het gearchiveerde document opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Version No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 635157464 - Field 1684721775 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version No.</source>
+          <target state="translated">Versienr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Document Line Attribute - Field Version No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 452080847 - NamedType 668814160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document line must be passed as a record.</source>
+          <target state="translated">De documentregel moet als record worden doorgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ATT Doc. Line Attribute Mgt. - NamedType NotARecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 452080847 - NamedType 2629721463" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document line attributes are not supported for records of table %1.</source>
+          <target state="translated">Documentregelkenmerken worden niet ondersteund voor records van tabel %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ATT Doc. Line Attribute Mgt. - NamedType UnsupportedRecordErr</note>
+        </trans-unit>
+        <trans-unit id="Enum 476776506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Attribute Source</source>
+          <target state="translated">Bron regelkenmerk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 476776506 - EnumValue 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item</source>
+          <target state="translated">Artikel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - EnumValue Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 476776506 - EnumValue 146219450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order</source>
+          <target state="translated">Order</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - EnumValue Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 476776506 - EnumValue 2817415678 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent Line</source>
+          <target state="translated">Hoofdregel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - EnumValue Parent Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 476776506 - EnumValue 112710097 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+          <target state="translated">Variant</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - EnumValue Variant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1661223638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ATT Custom - All</source>
+          <target state="translated">ATT Custom - Alles</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ATT CUSTOM - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
