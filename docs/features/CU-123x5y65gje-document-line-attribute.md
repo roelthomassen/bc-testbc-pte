@@ -2,6 +2,7 @@
 
 - ClickUp: [Tabel Documentregelkenmerk](https://app.clickup.com/t/123x5y65gje) (CU-123x5y65gje)
 - Spec: [docs/specs/CU-123x5y65gje.md](../specs/CU-123x5y65gje.md)
+- UAT script: [docs/uat/CU-123x5y65gje-document-line-attribute.md](../uat/CU-123x5y65gje-document-line-attribute.md)
 - App: `Customer Extensions`
 
 ## Purpose
@@ -206,13 +207,193 @@ update the nl-BE file from it.
 
 ## Tests
 
-In the test app (`Customer Extensions Test`):
+There are two test apps and a manual UAT script:
+
+| App | Folder | IDs | Runs in |
+|---|---|---|---|
+| `Customer Extensions Test` | `Customer Extensions Test/` | 50150–50179 | BC 28 BE online sandbox, and the AL-Go pipeline container |
+| `Customer Extensions Permission Test` | `Customer Extensions Permission Test/` | 50180–50199 | AL-Go pipeline container only |
+
+`Customer Extensions Test` must compile and run in the BC 28 BE online sandbox.
+AL-Go also runs it in the pipeline container: `appFolders` and `testFolders` are
+empty in `.AL-Go/settings.json`, so AL-Go detects both test apps by itself.
+
+UAT script: [docs/uat/CU-123x5y65gje-document-line-attribute.md](../uat/CU-123x5y65gje-document-line-attribute.md).
+
+> **Run the sandbox tests with test runner 130450 "Test Runner - Isol. Codeunit"
+> in a dedicated test company.** This applies to codeunits 50150, 50151 and
+> 50153. Only codeunit isolation rolls back their changes when the codeunit ends.
+> With another runner, or in a company that is used for anything else, these
+> changes stay in the database.
+>
+> - 50150: `Initialize` changes nothing, but the tests write item attributes,
+>   item attribute values and line attribute rows to the real tables.
+> - 50151: `Initialize` changes setup (stockout and credit warnings, Exact Cost
+>   Reversing Mandatory, and the posting setup of `ATT Test Library`) and commits
+>   it; the tests also post documents.
+> - 50153: only reads metadata, but runs with the same runner so that all
+>   codeunits of the app are run the same way.
+
+### Sandbox test app
+
+`Customer Extensions Test` does not depend on `Tests-TestLibraries`; its only
+test dependencies are `Library Assert`, `Any` and `Test Runner`.
 
 - `ATT Doc. Line Attr. Unit Test` (50150): AC1–AC6, AC8.
-- `ATT Doc. Line Attr. Int. Test` (50151): AC7, AC9–AC11.
-- `ATT Doc. Line Attr. Test Lib.` (50152): shared helpers.
-- `ATT Doc. Line Attr. Perm. Test` (50153): runs with `TestPermissions =
-  Restrictive` and uses `Library - Lower Permissions` (`SetSalesDocsPost`,
-  `SetSalesDocsCreate`) without `ATT CUSTOM`. It covers posting a sales document
-  and deleting a sales line that has attributes. Archiving under lowered
-  permissions is not covered yet.
+- `ATT Doc. Line Attr. Int. Test` (50151): AC7, AC9–AC11, and the archive parts
+  of AC3 (archiving an order twice).
+- `ATT Doc. Line Attr. Test Lib.` (50152): shared helpers for the attribute tests.
+- `ATT Doc. Line Attr. Perm. Test` (50153): checks the definition of `ATT CUSTOM`,
+  see [Permission tests](#permission-tests).
+- `ATT Test Library` (50154): creates the test data. See
+  [Test data](#test-data).
+
+All test codeunits of this app run with `TestPermissions = Disabled`.
+
+### Test data
+
+`ATT Test Library` replaces the `Library - Sales`, `Library - Inventory` and
+`Library - Utility` codeunits, which are not available in an online sandbox. It
+creates items, customers, sales headers and sales lines, posts sales documents
+with `Sales-Post`, creates item attributes and values, sets the Sales &
+Receivables Setup toggles the tests need (stockout warning, credit warnings,
+Exact Cost Reversing Mandatory), and generates unique codes
+(`GenerateUniqueCode`). Random values come from the `Any` codeunit.
+
+The library creates its own posting setup and does not use the setup of the
+company. `InitializePostingSetup` does this the first time it is needed in a
+transaction; `CreateItem`, `CreateCustomer` and `CreateSalesHeader` call it, and
+the integration tests also call it from `Initialize` before the `Commit`. It
+creates:
+
+- G/L accounts for sales, cost, interim, inventory, receivables and VAT;
+- a VAT Business and VAT Product Posting Group with a VAT Posting Setup (Normal
+  VAT, 21 %);
+- a Gen. Business and Gen. Product Posting Group with a General Posting Setup;
+- a Customer Posting Group and an Inventory Posting Group with Inventory Posting
+  Setup;
+- a separate G/L account for invoice rounding, with the library's Gen. and VAT
+  Prod. Posting Groups, set as Invoice Rounding Account on the Customer Posting
+  Group, so that invoice rounding lines post with the library's posting setup;
+- a Unit of Measure, used as base unit of measure of the items it creates;
+- a Location without warehouse handling or bins, only when Location Mandatory is
+  on in the Inventory Setup or the Warehouse Setup requires shipment, receipt,
+  pick or put-away. Sales headers get this location.
+
+It also makes sure the work date can be posted on:
+
+- when the work date is outside Allow Posting From/To in the General Ledger
+  Setup or the current user's User Setup, those fields (and their date formulas)
+  are cleared;
+- the same for Allow VAT Date From/To in the User Setup and the VAT Setup.
+
+Each setup record is only modified when one of its date windows had to be
+cleared. The library changes nothing else in the User Setup.
+
+When `Journal Templ. Name Mandatory` is on in the General Ledger Setup (BE), the
+posted invoice and credit memo numbers come from the sales journal templates in
+the Sales & Receivables Setup (`S. Invoice Template Name`, `S. Cr. Memo Template
+Name`). If a template is blank or does not exist, the library creates a Sales
+journal template with the Posted Invoice Nos. or Posted Credit Memo Nos. series
+of the setup and links it; the Sales & Receivables Setup is only modified in
+that case. It also clears the template's allowed posting date window when the
+work date is outside it.
+
+Document numbers still come from the number series of the company.
+`CreateSalesHeader` checks the number series it needs for the document type
+(for example Order Nos., Posted Shipment Nos. and Posted Invoice Nos. for an
+order) and raises an error that names the setup field when one is blank or does
+not exist. For invoices it also checks Posted Shipment Nos. when **Shipment on
+Invoice** is on, and for credit memos Posted Return Receipt Nos. when **Return
+Receipt on Credit Memo** is on.
+
+Before you run the tests, make sure the test company has:
+
+- the number series above filled in in the Sales & Receivables Setup (and on the
+  sales journal templates, when `Journal Templ. Name Mandatory` is on);
+- a number series line that is open on the work date for each of these series;
+- automatic numbering (**Default Nos.**) on the posted-document series,
+  otherwise the Posting No. Series on the document stays blank;
+- no default dimensions with **Code Mandatory** on the G/L Account, Customer or
+  Item tables (the library does not create dimensions).
+
+### Permission tests
+
+`Library - Lower Permissions` is not available in an online sandbox, so
+`ATT Doc. Line Attr. Perm. Test` (50153) does not run code with lowered
+permissions. It reads the `ATT CUSTOM` definition from system tables. Its 6 tests
+check that:
+
+1. `ATT CUSTOM` is assignable (`Metadata Permission Set`);
+2. it grants RIMD on tabledata `ATT Document Line Attribute`;
+3. it grants X on table `ATT Document Line Attribute`;
+4. it grants X on codeunit `ATT Doc. Line Attribute Mgt.`;
+5. it grants X on codeunit `ATT Doc. Line Attr. Subscr.`;
+6. every table, page, report, codeunit, XMLport and query of
+   `Customer Extensions` (from `AllObj`) has full permissions in `ATT CUSTOM`.
+
+Tests 2–5 read `Metadata Permission`, so they only see permissions that are
+written directly in `ATT CUSTOM`. Test 6 reads `Expanded Permission`, so it also
+counts permissions that `ATT CUSTOM` gets from the permission sets it includes
+(minus the ones it excludes), and a permission on object ID 0 (all objects of the
+type).
+
+The runtime behaviour for users without `ATT CUSTOM` is tested in the container
+app, see the next section.
+
+### Container-only permission test app
+
+`Customer Extensions Permission Test` (app ID
+`4e251cbe-799a-4e50-baad-7d34e78cfac9`) depends on `Tests-TestLibraries` and
+`Permissions Mock` (`40860557-a18d-42ad-aecb-22b7dd80dc80`), besides
+`Customer Extensions`, `Library Assert` and `Any`. `Tests-TestLibraries` is only
+available in a container. The app runs in the AL-Go pipeline container and is
+never published to the online sandbox.
+
+- `ATT DLA Lowered Perm. Test` (50180), `TestPermissions = Restrictive`, 5 tests.
+  Each test creates the data with full permissions, then lowers the permissions
+  with `Library - Lower Permissions` to the standard sales permission sets
+  (without `ATT CUSTOM`) for the action:
+  - post a sales order (ship and invoice) with `SetSalesDocsPost`: the attributes
+    are copied to the posted invoice line;
+  - the same posting: the attributes of the order line are removed;
+  - delete a sales line with `SetSalesDocsCreate`: its attributes are deleted;
+  - archive a sales order with `SetSalesDocsCreate`: the attributes are copied to
+    the archived line, under the archive's Doc. No. Occurrence and Version No.;
+  - delete an archived sales order with `SetSalesDocsCreate`
+    (`DeleteSalesOrderArchiveAsSalesUser_DeletesArchivedAttributes`): the
+    attributes of the archived line are deleted.
+
+  The posted and archived attributes are compared field by field with the
+  original ones (Attribute Value ID, Value, Unit of Measure, Source, flags,
+  Sequence).
+
+  Right after lowering the permissions, each test asserts that the permissions
+  mock (`Permissions Mock`) is running. Without a running mock the test would run
+  with full permissions and pass without testing anything; now it fails with a
+  message instead.
+- `ATT DLA Perm. Test Lib.` (50181): helpers to create, count and compare line
+  attributes. According to its code remark it is a trimmed copy of the helpers in
+  `ATT Doc. Line Attr. Test Lib.` (50152), so that this app does not depend on the
+  sandbox test app. When you change the shared helpers in 50152, make the same
+  change in 50181.
+
+These tests prove that the `[InherentPermissions]` on the subscribers (see
+[Setup and permissions](#setup-and-permissions)) work at runtime with the
+permission sets of the test libraries. They do not run against the real online
+environment or the customer's own permission sets and security groups. The
+[UAT script](../uat/CU-123x5y65gje-document-line-attribute.md) covers that: run
+it with a real user that does not have `ATT CUSTOM`.
+
+### Workspace and symbols
+
+- `al.code-workspace` has a folder entry for `Customer Extensions Permission
+  Test`, next to `Customer Extensions` and `Customer Extensions Test`, so that the
+  AL extension loads it.
+- Download the symbols for both test apps before you compile them locally
+  (`AL: Download Symbols`):
+  - `Customer Extensions Test`: from the sandbox. This gives the `Test Runner`
+    symbols.
+  - `Customer Extensions Permission Test`: from a container. `Tests-TestLibraries`
+    is only available in a container, not in an online sandbox, so this app does
+    not compile against the sandbox.

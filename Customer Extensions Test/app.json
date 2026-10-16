@@ -31,8 +31,8 @@
     },
     {
       "publisher": "Microsoft",
-      "name": "Tests-TestLibraries",
-      "id": "5d86850b-0d76-4eca-bd7b-951ad998e997",
+      "name": "Test Runner",
+      "id": "23de40a6-dfe8-4f80-80db-d70f83ce8caf",
       "version": "28.0.0.0"
     }
   ],
@@ -43,7 +43,7 @@
   "idRanges": [
     {
       "from": 50150,
-      "to": 50199
+      "to": 50179
     }
   ],
   "features": [

@@ -1,6 +1,7 @@
 namespace Attitutor.CustomerExtensions.Test.DocumentLineAttribute;
 
 using Attitutor.CustomerExtensions.DocumentLineAttribute;
+using Attitutor.CustomerExtensions.Test.TestLibrary;
 using Microsoft.Inventory.Item.Attribute;
 using Microsoft.Manufacturing.Document;
 using Microsoft.Sales.Archive;
@@ -13,6 +14,11 @@ using System.TestLibraries.Utilities;
 /// Unit tests for the ATT Document Line Attribute table and the ATT Doc. Line Attribute Mgt. codeunit
 /// (CU-123x5y65gje, acceptance criteria 1-6 and 8).
 /// </summary>
+/// <remarks>
+/// Run with test runner 130450 "Test Runner - Isol. Codeunit" (codeunit-level isolation) in a dedicated test company:
+/// the tests insert and modify item attributes, item attribute values and line attribute rows in real tables (Initialize changes
+/// nothing), and these must be rolled back when the codeunit ends.
+/// </remarks>
 codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 {
     Subtype = Test;
@@ -22,8 +28,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 
     var
         Assert: Codeunit "Library Assert";
-        LibraryUtility: Codeunit "Library - Utility";
-        LibraryTestInitialize: Codeunit "Library - Test Initialize";
+        ATTTestLibrary: Codeunit "ATT Test Library";
         TestLib: Codeunit "ATT Doc. Line Attr. Test Lib.";
         DocLineAttributeMgt: Codeunit "ATT Doc. Line Attribute Mgt.";
         IsInitialized: Boolean;
@@ -366,7 +371,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
         Initialize();
 
         // [GIVEN] A customer record and a sales line
-        TempCustomer."No." := LibraryUtility.GenerateGUID();
+        TempCustomer."No." := ATTTestLibrary.GenerateUniqueCode();
         CreateTempSalesLine(TempSalesLine);
 
         // [WHEN] Attributes are copied from the customer record
@@ -384,7 +389,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 
         // [GIVEN] A value that is not a record
         // [WHEN] The delete function is run for it
-        asserterror DocLineAttributeMgt.DeleteAttributes(LibraryUtility.GenerateGUID());
+        asserterror DocLineAttributeMgt.DeleteAttributes(ATTTestLibrary.GenerateUniqueCode());
 
         // [THEN] An error says a record is expected
         Assert.ExpectedError(NotARecordErr);
@@ -405,7 +410,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 
         // [GIVEN] An attribute stored for version 1 of an archived sales line
         TestLib.CreateItemAttributeWithValue(CentimeterTxt, MediumTxt, ItemAttribute, ItemAttributeValue);
-        DocumentNo := LibraryUtility.GenerateGUID();
+        DocumentNo := ATTTestLibrary.GenerateUniqueCode();
         CreateLineAttribute(
             DocLineAttribute, Database::"Sales Line Archive", "Sales Document Type"::Order.AsInteger(), DocumentNo, 1, 1, 10000,
             ItemAttribute.ID, ItemAttributeValue.ID);
@@ -435,7 +440,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
         Initialize();
 
         // [GIVEN] Version 1 of an archived line with 3 attributes
-        DocumentNo := LibraryUtility.GenerateGUID();
+        DocumentNo := ATTTestLibrary.GenerateUniqueCode();
         TestLib.CreateLineAttributes(Database::"Sales Line Archive", "Sales Document Type"::Order.AsInteger(), DocumentNo, 1, 1, 10000, 3);
 
         // [WHEN] The delete function is run for the line
@@ -457,7 +462,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
         Initialize();
 
         // [GIVEN] Version 1 of an archived line with 3 attributes
-        DocumentNo := LibraryUtility.GenerateGUID();
+        DocumentNo := ATTTestLibrary.GenerateUniqueCode();
         DocumentType := "Sales Document Type"::Order.AsInteger();
         TestLib.CreateLineAttributes(Database::"Sales Line Archive", DocumentType, DocumentNo, 1, 1, 10000, 3);
 
@@ -484,7 +489,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
         Initialize();
 
         // [GIVEN] A sales shipment line with 3 attributes
-        TempSalesShipmentLine."Document No." := LibraryUtility.GenerateGUID();
+        TempSalesShipmentLine."Document No." := ATTTestLibrary.GenerateUniqueCode();
         TempSalesShipmentLine."Line No." := 10000;
         TestLib.CreateLineAttributes(Database::"Sales Shipment Line", 0, TempSalesShipmentLine."Document No.", 0, 0, TempSalesShipmentLine."Line No.", 3);
 
@@ -509,7 +514,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
         Initialize();
 
         // [GIVEN] A document number
-        DocumentNo := LibraryUtility.GenerateGUID();
+        DocumentNo := ATTTestLibrary.GenerateUniqueCode();
 
         // [WHEN] An attribute is inserted for each supported table
         TestLib.CreateLineAttribute(DocLineAttribute, Database::"Sales Line", "Sales Document Type"::Order.AsInteger(), DocumentNo, 0, 0, 10000);
@@ -535,7 +540,7 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 
         // [GIVEN] A line attribute for the Sales Header table
         // [WHEN] It is inserted
-        asserterror TestLib.CreateLineAttribute(DocLineAttribute, Database::"Sales Header", "Sales Document Type"::Order.AsInteger(), LibraryUtility.GenerateGUID(), 0, 0, 10000);
+        asserterror TestLib.CreateLineAttribute(DocLineAttribute, Database::"Sales Header", "Sales Document Type"::Order.AsInteger(), ATTTestLibrary.GenerateUniqueCode(), 0, 0, 10000);
 
         // [THEN] An error says the table is not supported
         Assert.ExpectedError(StrSubstNo(UnsupportedTableErr, Database::"Sales Header"));
@@ -573,34 +578,31 @@ codeunit 50150 "ATT Doc. Line Attr. Unit Test"
 
     local procedure Initialize()
     begin
-        LibraryTestInitialize.OnTestInitialize(Codeunit::"ATT Doc. Line Attr. Unit Test");
         if IsInitialized then
             exit;
 
-        LibraryTestInitialize.OnBeforeTestSuiteInitialize(Codeunit::"ATT Doc. Line Attr. Unit Test");
         IsInitialized := true;
-        LibraryTestInitialize.OnAfterTestSuiteInitialize(Codeunit::"ATT Doc. Line Attr. Unit Test");
     end;
 
     local procedure CreateTempSalesLine(var TempSalesLine: Record "Sales Line" temporary)
     begin
         TempSalesLine.Init();
         TempSalesLine."Document Type" := TempSalesLine."Document Type"::Order;
-        TempSalesLine."Document No." := LibraryUtility.GenerateGUID();
+        TempSalesLine."Document No." := ATTTestLibrary.GenerateUniqueCode();
         TempSalesLine."Line No." := 10000;
     end;
 
     local procedure CreateTempSalesInvoiceLine(var TempSalesInvoiceLine: Record "Sales Invoice Line" temporary)
     begin
         TempSalesInvoiceLine.Init();
-        TempSalesInvoiceLine."Document No." := LibraryUtility.GenerateGUID();
+        TempSalesInvoiceLine."Document No." := ATTTestLibrary.GenerateUniqueCode();
         TempSalesInvoiceLine."Line No." := 10000;
     end;
 
     local procedure CreateSalesLineAttribute(var DocLineAttribute: Record "ATT Document Line Attribute"; AttributeId: Integer; AttributeValueId: Integer)
     begin
         CreateLineAttribute(
-            DocLineAttribute, Database::"Sales Line", "Sales Document Type"::Order.AsInteger(), LibraryUtility.GenerateGUID(), 0, 0, 10000,
+            DocLineAttribute, Database::"Sales Line", "Sales Document Type"::Order.AsInteger(), ATTTestLibrary.GenerateUniqueCode(), 0, 0, 10000,
             AttributeId, AttributeValueId);
     end;
 

@@ -1,6 +1,7 @@
 namespace Attitutor.CustomerExtensions.Test.DocumentLineAttribute;
 
 using Attitutor.CustomerExtensions.DocumentLineAttribute;
+using Attitutor.CustomerExtensions.Test.TestLibrary;
 using Microsoft.Sales.Archive;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
@@ -11,6 +12,10 @@ using System.TestLibraries.Utilities;
 /// Integration tests for the automatic delete, archive copy and posting copy of document line attributes
 /// (CU-123x5y65gje, acceptance criteria 7 and 9-11).
 /// </summary>
+/// <remarks>
+/// Run with test runner 130450 "Test Runner - Isol. Codeunit" (codeunit-level isolation) in a dedicated test company:
+/// the tests and their Initialize change setup and data that must be rolled back when the codeunit ends.
+/// </remarks>
 codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 {
     Subtype = Test;
@@ -20,10 +25,8 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
     var
         Assert: Codeunit "Library Assert";
-        LibraryInventory: Codeunit "Library - Inventory";
-        LibrarySales: Codeunit "Library - Sales";
-        LibraryRandom: Codeunit "Library - Random";
-        LibraryTestInitialize: Codeunit "Library - Test Initialize";
+        Any: Codeunit Any;
+        ATTTestLibrary: Codeunit "ATT Test Library";
         TestLib: Codeunit "ATT Doc. Line Attr. Test Lib.";
         ArchiveManagement: Codeunit ArchiveManagement;
         IsInitialized: Boolean;
@@ -128,7 +131,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
         // [GIVEN] A posted sales invoice whose line has 3 attributes
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::Invoice, 3);
-        InvoiceNo := LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        InvoiceNo := ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
         SalesInvoiceLine.Get(InvoiceNo, SalesLine."Line No.");
 
         // [WHEN] The posted invoice line is deleted
@@ -197,7 +200,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
         // [GIVEN] A shipped sales order whose line has 3 attributes
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, 3);
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, false);
         FindSalesShipmentLine(SalesShipmentLine, SalesLine);
 
         // [WHEN] The posted shipment line is deleted
@@ -222,7 +225,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
         // [GIVEN] A posted sales credit memo whose line has 3 attributes
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::"Credit Memo", 3);
-        CrMemoNo := LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        CrMemoNo := ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
         SalesCrMemoLine.Get(CrMemoNo, SalesLine."Line No.");
 
         // [WHEN] The posted credit memo line is deleted
@@ -244,7 +247,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
         // [GIVEN] A received sales return order whose line has 3 attributes
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::"Return Order", 3);
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, false);
         FindReturnReceiptLine(ReturnReceiptLine, SalesLine);
 
         // [WHEN] The posted return receipt line is deleted
@@ -353,7 +356,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         TestLib.GetSalesLineAttributes(SalesLine, TempExpectedDocLineAttribute);
 
         // [WHEN] The sales order is shipped and invoiced
-        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
 
         // [THEN] The shipment line has the same attributes
         FindSalesShipmentLine(SalesShipmentLine, SalesLine);
@@ -377,7 +380,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         TestLib.GetSalesLineAttributes(SalesLine, TempExpectedDocLineAttribute);
 
         // [WHEN] The sales order is shipped and invoiced
-        InvoiceNo := LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        InvoiceNo := ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
 
         // [THEN] The invoice line has the same attributes
         TestLib.AssertLineAttributesMatch(TempExpectedDocLineAttribute, Database::"Sales Invoice Line", 0, InvoiceNo, 0, 0, SalesLine."Line No.");
@@ -396,7 +399,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::Order, 4);
 
         // [WHEN] The sales order is shipped and invoiced completely
-        LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
 
         // [THEN] The order line has no attributes any more
         Assert.AreEqual(0, TestLib.CountSalesLineAttributes(SalesLine), AttributeCountMsg);
@@ -418,7 +421,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         TestLib.GetSalesLineAttributes(SalesLine, TempExpectedDocLineAttribute);
 
         // [WHEN] The credit memo is posted
-        CrMemoNo := LibrarySales.PostSalesDocument(SalesHeader, true, true);
+        CrMemoNo := ATTTestLibrary.PostSalesDocument(SalesHeader, true, true);
 
         // [THEN] The credit memo line has the same attributes
         TestLib.AssertLineAttributesMatch(TempExpectedDocLineAttribute, Database::"Sales Cr.Memo Line", 0, CrMemoNo, 0, 0, SalesLine."Line No.");
@@ -440,7 +443,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         TestLib.GetSalesLineAttributes(SalesLine, TempExpectedDocLineAttribute);
 
         // [WHEN] The return order is received
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, false);
 
         // [THEN] The return receipt line has the same attributes
         FindReturnReceiptLine(ReturnReceiptLine, SalesLine);
@@ -490,7 +493,7 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
         CreateSalesDocumentWithAttributes(SalesHeader, SalesLine, SalesHeader."Document Type"::"Return Order", 2);
 
         // [WHEN] The return order is received
-        LibrarySales.PostSalesDocument(SalesHeader, true, false);
+        ATTTestLibrary.PostSalesDocument(SalesHeader, true, false);
 
         // [THEN] The attributes of the return receipt line have Document Type 0
         FindReturnReceiptLine(ReturnReceiptLine, SalesLine);
@@ -529,30 +532,28 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 
     local procedure Initialize()
     begin
-        LibraryTestInitialize.OnTestInitialize(Codeunit::"ATT Doc. Line Attr. Int. Test");
         if IsInitialized then
             exit;
 
-        LibraryTestInitialize.OnBeforeTestSuiteInitialize(Codeunit::"ATT Doc. Line Attr. Int. Test");
-        LibrarySales.SetStockoutWarning(false);
-        LibrarySales.SetCreditWarningsToNoWarnings();
-        LibrarySales.SetExactCostReversingMandatory(false);
+        ATTTestLibrary.SetStockoutWarning(false);
+        ATTTestLibrary.SetCreditWarningsToNoWarnings();
+        ATTTestLibrary.SetExactCostReversingMandatory(false);
+        ATTTestLibrary.InitializePostingSetup();
 
         IsInitialized := true;
         Commit();
-        LibraryTestInitialize.OnAfterTestSuiteInitialize(Codeunit::"ATT Doc. Line Attr. Int. Test");
     end;
 
     local procedure CreateSalesDocumentWithAttributes(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; DocumentType: Enum "Sales Document Type"; NumberOfAttributes: Integer)
     begin
-        LibrarySales.CreateSalesHeader(SalesHeader, DocumentType, LibrarySales.CreateCustomerNo());
+        ATTTestLibrary.CreateSalesHeader(SalesHeader, DocumentType, ATTTestLibrary.CreateCustomerNo());
         CreateSalesLineWithAttributes(SalesLine, SalesHeader, NumberOfAttributes);
     end;
 
     local procedure CreateSalesLineWithAttributes(var SalesLine: Record "Sales Line"; SalesHeader: Record "Sales Header"; NumberOfAttributes: Integer)
     begin
-        LibrarySales.CreateSalesLine(
-            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(1, 10));
+        ATTTestLibrary.CreateSalesLine(
+            SalesLine, SalesHeader, SalesLine.Type::Item, ATTTestLibrary.CreateItemNo(), Any.IntegerInRange(1, 10));
         TestLib.CreateSalesLineAttributes(SalesLine, NumberOfAttributes);
     end;
 

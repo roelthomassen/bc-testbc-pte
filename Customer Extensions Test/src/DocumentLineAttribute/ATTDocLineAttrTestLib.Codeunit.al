@@ -1,6 +1,7 @@
 namespace Attitutor.CustomerExtensions.Test.DocumentLineAttribute;
 
 using Attitutor.CustomerExtensions.DocumentLineAttribute;
+using Attitutor.CustomerExtensions.Test.TestLibrary;
 using Microsoft.Inventory.Item.Attribute;
 using Microsoft.Sales.Document;
 using System.TestLibraries.Utilities;
@@ -8,12 +9,17 @@ using System.TestLibraries.Utilities;
 /// <summary>
 /// Shared helpers for the document line attribute tests.
 /// </summary>
+/// <remarks>
+/// Customer Extensions Permission Test has a trimmed copy of these helpers in codeunit 50181 "ATT DLA Perm. Test Lib."; keep the two in sync.
+/// Use the ATT Test Library instance in this codeunit only for item attributes, never for CreateItem, CreateCustomer or sales documents:
+/// each ATT Test Library instance creates its own posting groups, so mixing instances mixes posting setups.
+/// </remarks>
 codeunit 50152 "ATT Doc. Line Attr. Test Lib."
 {
     var
         Assert: Codeunit "Library Assert";
         Any: Codeunit Any;
-        LibraryInventory: Codeunit "Library - Inventory";
+        ATTTestLibrary: Codeunit "ATT Test Library";
         CountMismatchMsg: Label 'Number of attributes on the line.';
         FieldMismatchMsg: Label 'Field %1 of attribute %2.', Comment = '%1 = field caption, %2 = attribute ID';
 
@@ -22,8 +28,8 @@ codeunit 50152 "ATT Doc. Line Attr. Test Lib."
     /// </summary>
     procedure CreateItemAttributeWithValue(UnitOfMeasure: Text[30]; ValueText: Text[250]; var ItemAttribute: Record "Item Attribute"; var ItemAttributeValue: Record "Item Attribute Value")
     begin
-        LibraryInventory.CreateItemAttribute(ItemAttribute, ItemAttribute.Type::Option, UnitOfMeasure);
-        LibraryInventory.CreateItemAttributeValue(ItemAttributeValue, ItemAttribute.ID, ValueText);
+        ATTTestLibrary.CreateItemAttribute(ItemAttribute, UnitOfMeasure);
+        ATTTestLibrary.CreateItemAttributeValue(ItemAttributeValue, ItemAttribute.ID, ValueText);
     end;
 
     /// <summary>

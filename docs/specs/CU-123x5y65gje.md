@@ -214,17 +214,49 @@ Approved 2026-10-16.
 
 **UI/API:** none.
 
-### Test app (`Customer Extensions Test/`, IDs 50150–50199)
-- app.json: add dependencies on `Customer Extensions` and Microsoft
-  `Tests-TestLibraries`.
+### Tests
+
+Details (test data, permission checks, workspace setup) are in the
+[Tests section of the feature doc](../features/CU-123x5y65gje-document-line-attribute.md#tests).
+
+**Sandbox test app (`Customer Extensions Test/`, IDs 50150–50179)**
+- Must compile and run in a BC 28 BE online sandbox.
+- app.json: dependencies on `Customer Extensions` and the Microsoft test apps
+  `Library Assert`, `Any` and `Test Runner` only. `Library Variable Storage` is
+  allowed but not used. No dependency on `Tests-TestLibraries`.
 - Codeunit 50150 `ATT Doc. Line Attr. Unit Test` covers AC1–AC6 and AC8.
 - Codeunit 50151 `ATT Doc. Line Attr. Int. Test` covers AC7 and AC9–AC11:
   delete line/header, archive twice, post order (ship + invoice), credit memo,
   return order receive. (Shortened from "Integr." because AL object names are
   limited to 30 characters.)
-- Codeunit 50152 `ATT Doc. Line Attr. Test Lib.`: test helpers shared by both
-  test codeunits.
+- Codeunit 50152 `ATT Doc. Line Attr. Test Lib.`: attribute test helpers shared
+  by the test codeunits.
+- Codeunit 50153 `ATT Doc. Line Attr. Perm. Test`: checks the definition of
+  `ATT CUSTOM` through `Metadata Permission Set`, `Metadata Permission` and
+  `Expanded Permission`. It does not run code with lowered permissions.
+- Codeunit 50154 `ATT Test Library`: creates its own posting setup and the test
+  data (items, customers, sales documents, item attributes).
+- Run with test runner 130450 "Test Runner - Isol. Codeunit" in a dedicated test
+  company.
 - AC12 is checked by the presence and contents of the XLIFF files.
+
+**Container-only permission test app (`Customer Extensions Permission Test/`, IDs 50180–50199)**
+- App ID `4e251cbe-799a-4e50-baad-7d34e78cfac9`. Depends on
+  `Tests-TestLibraries` and `Permissions Mock`, and runs only in the AL-Go
+  pipeline container, never in the online sandbox.
+- Codeunit 50180 `ATT DLA Lowered Perm. Test`: 5 tests that run the action under
+  `Library - Lower Permissions`, without `ATT CUSTOM`:
+  - posting a sales order copies the attributes to the invoice line;
+  - posting removes the attributes of the order line;
+  - deleting a sales line deletes its attributes;
+  - archiving a sales order copies the attributes to the archived line;
+  - deleting an archived sales order deletes the attributes of its archived
+    lines.
+- Codeunit 50181 `ATT DLA Perm. Test Lib.`: helpers for these tests.
+
+**Manual UAT**
+- [docs/uat/CU-123x5y65gje-document-line-attribute.md](../uat/CU-123x5y65gje-document-line-attribute.md),
+  including the check with a user who does not have `ATT CUSTOM`.
 
 ### Out of scope (follow-ups)
 - Copying attributes through Copy Document or Get Shipment Lines.
