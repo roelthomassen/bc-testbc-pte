@@ -7,5 +7,6 @@
   "testFolders": [
     "Customer Extensions Test"
   ],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "repoVersion": "1.1"
 }

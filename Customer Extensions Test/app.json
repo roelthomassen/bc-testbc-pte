@@ -2,7 +2,7 @@
   "id": "9ce1642f-e122-484e-ab28-5357910e885d",
   "name": "Customer Extensions Test",
   "publisher": "RoelThomassen",
-  "version": "1.0.0.0",
+  "version": "1.1.0.0",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -15,7 +15,7 @@
       "id": "ca85000e-7040-449e-a825-6f7d7d6f718a",
       "name": "Customer Extensions",
       "publisher": "RoelThomassen",
-      "version": "1.0.0.0"
+      "version": "1.1.0.0"
     },
     {
       "publisher": "Microsoft",
