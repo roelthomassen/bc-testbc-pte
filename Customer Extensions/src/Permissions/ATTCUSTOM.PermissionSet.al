@@ -1,6 +1,7 @@
 namespace Attitutor.CustomerExtensions.Permissions;
 
 using Attitutor.CustomerExtensions.DocumentLineAttribute;
+using Attitutor.CustomerExtensions.Upgrade;
 
 /// <summary>
 /// Gives full access to all objects of the Customer Extensions app. Every new object of the app is added here.
@@ -14,5 +15,8 @@ permissionset 50100 "ATT CUSTOM"
         tabledata "ATT Document Line Attribute" = RIMD,
         table "ATT Document Line Attribute" = X,
         codeunit "ATT Doc. Line Attribute Mgt." = X,
-        codeunit "ATT Doc. Line Attr. Subscr." = X;
+        codeunit "ATT Doc. Line Attr. Subscr." = X,
+        codeunit "ATT Install" = X,
+        codeunit "ATT Upgrade" = X,
+        codeunit "ATT Upgrade Mgt." = X;
 }

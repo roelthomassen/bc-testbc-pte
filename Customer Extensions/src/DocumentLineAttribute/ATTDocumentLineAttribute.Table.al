@@ -51,12 +51,15 @@ table 50100 "ATT Document Line Attribute"
 
             trigger OnValidate()
             begin
+                // Re-validating the same attribute keeps the line's values, including the print settings (snapshot).
+                // Callers must use Validate("Attribute ID", Value): after a direct assignment, xRec already has the new value and nothing is copied.
                 if "Attribute ID" = xRec."Attribute ID" then
                     exit;
 
                 "Attribute Value ID" := 0;
                 Value := '';
                 "Unit of Measure" := '';
+                CopyPrintSettingsFromItemAttribute();
             end;
         }
         field(10; "Attribute Value ID"; Integer)
@@ -150,6 +153,23 @@ table 50100 "ATT Document Line Attribute"
             exit;
 
         Error(UnsupportedTableErr, "Table ID");
+    end;
+
+    local procedure CopyPrintSettingsFromItemAttribute()
+    var
+        ItemAttribute: Record "Item Attribute";
+    begin
+        // The settings are a snapshot: later changes on the item attribute do not change the line attribute.
+        if "Attribute ID" = 0 then begin
+            "Show on Customer Documents" := false;
+            "Show on Production Documents" := false;
+            exit;
+        end;
+
+        ItemAttribute.SetLoadFields("ATT Show on Customer Docs", "ATT Show on Production Docs");
+        ItemAttribute.Get("Attribute ID");
+        "Show on Customer Documents" := ItemAttribute."ATT Show on Customer Docs";
+        "Show on Production Documents" := ItemAttribute."ATT Show on Production Docs";
     end;
 
     local procedure SnapshotAttributeValue()

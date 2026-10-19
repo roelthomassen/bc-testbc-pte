@@ -267,6 +267,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Line Attribute Source - EnumValue Variant - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2904687236 - Field 451745944 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2789509059">
+          <source>Specifies if the attribute is shown on documents for the customer. The setting is copied to a document line when the attribute is assigned to it.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op documenten voor de klant. De instelling wordt naar een documentregel gekopieerd wanneer het kenmerk eraan wordt toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attribute - Field ATT Show on Customer Docs - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2904687236 - Field 451745944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2789509059">
+          <source>Show on Customer Documents</source>
+          <target state="translated">Tonen op klantdocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attribute - Field ATT Show on Customer Docs - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2904687236 - Field 1579335797 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2789509059">
+          <source>Specifies if the attribute is shown on production documents. The setting is copied to a document line when the attribute is assigned to it.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op productiedocumenten. De instelling wordt naar een documentregel gekopieerd wanneer het kenmerk eraan wordt toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attribute - Field ATT Show on Production Docs - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2904687236 - Field 1579335797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2789509059">
+          <source>Show on Production Documents</source>
+          <target state="translated">Tonen op productiedocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attribute - Field ATT Show on Production Docs - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PermissionSet 1661223638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ATT Custom - All</source>
           <target state="translated">ATT Custom - Alles</target>

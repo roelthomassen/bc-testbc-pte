@@ -42,7 +42,7 @@ display order.
 | 4 | Doc. No. Occurrence | Integer | Only for Sales Line Archive, otherwise 0. |
 | 5 | Version No. | Integer | Only for Sales Line Archive, otherwise 0. |
 | 6 | Line No. | Integer | |
-| 7 | Attribute ID | Integer | Relation to `Item Attribute` (7500). Changing it clears Attribute Value ID, Value and Unit of Measure. |
+| 7 | Attribute ID | Integer | Relation to `Item Attribute` (7500). Changing it clears Attribute Value ID, Value and Unit of Measure, and copies fields 17 and 18 from the Item Attribute (CU-123x5y65hfj). |
 | 10 | Attribute Value ID | Integer | Relation to `Item Attribute Value` (7501), filtered on Attribute ID. |
 | 11 | Value | Text[250] | Snapshot, see below. |
 | 12 | Unit of Measure | Text[30] | Snapshot, see below. |
@@ -50,8 +50,8 @@ display order.
 | 14 | Manually Modified | Boolean | |
 | 15 | Mandatory | Boolean | |
 | 16 | Sequence | Integer | Display order on the line. |
-| 17 | Show on Customer Documents | Boolean | |
-| 18 | Show on Production Documents | Boolean | |
+| 17 | Show on Customer Documents | Boolean | Copied from the Item Attribute when Attribute ID is validated (snapshot). See [Item Attribute Print Settings](CU-123x5y65hfj-item-attribute-print-settings.md#copy-to-the-document-line-attribute). |
+| 18 | Show on Production Documents | Boolean | Same as field 17. |
 
 DataClassification is `CustomerContent`.
 
@@ -331,6 +331,10 @@ check that:
 5. it grants X on codeunit `ATT Doc. Line Attr. Subscr.`;
 6. every table, page, report, codeunit, XMLport and query of
    `Customer Extensions` (from `AllObj`) has full permissions in `ATT CUSTOM`.
+
+CU-123x5y65hfj added 3 more tests (X on `ATT Install`, `ATT Upgrade` and
+`ATT Upgrade Mgt.`), see
+[Item Attribute Print Settings](CU-123x5y65hfj-item-attribute-print-settings.md#permission-tests).
 
 Tests 2–5 read `Metadata Permission`, so they only see permissions that are
 written directly in `ATT CUSTOM`. Test 6 reads `Expanded Permission`, so it also
