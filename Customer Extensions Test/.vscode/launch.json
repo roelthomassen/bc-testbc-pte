@@ -1,6 +1,17 @@
 {
-    "version": "0.2.0",
-    "environmentType": "Sandbox",
-    "environmentName": "DEV-RT",
-    "tenant": "cf8bb013-59a8-4685-a6ec-60ed1eb4efeb"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DEV-RT",
+      "type": "al",
+      "request": "launch",
+      "environmentType": "Sandbox",
+      "environmentName": "DEV-RT",
+      "tenant": "cf8bb013-59a8-4685-a6ec-60ed1eb4efeb",
+      "startupObjectId": 22,
+      "breakOnError": "All",
+      "launchBrowser": true,
+      "schemaUpdateMode": "ForceSync"
+    }
+  ]
 }

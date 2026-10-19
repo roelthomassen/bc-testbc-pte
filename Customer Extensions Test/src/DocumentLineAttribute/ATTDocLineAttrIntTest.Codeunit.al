@@ -20,6 +20,11 @@ codeunit 50151 "ATT Doc. Line Attr. Int. Test"
 {
     Subtype = Test;
     TestPermissions = Disabled;
+    // The license grants only indirect Delete on posted document lines; the AC9 tests delete them directly.
+    Permissions = tabledata "Sales Invoice Line" = d,
+                  tabledata "Sales Shipment Line" = d,
+                  tabledata "Sales Cr.Memo Line" = d,
+                  tabledata "Return Receipt Line" = d;
 
     // [FEATURE] [Document Line Attribute]
 
