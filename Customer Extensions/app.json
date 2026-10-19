@@ -11,6 +11,13 @@
   "url": "",
   "logo": "",
   "dependencies": [],
+  "internalsVisibleTo": [
+    {
+      "id": "9ce1642f-e122-484e-ab28-5357910e885d",
+      "name": "Customer Extensions Test",
+      "publisher": "RoelThomassen"
+    }
+  ],
   "screenshots": [],
   "platform": "28.0.0.0",
   "application": "28.0.0.0",

@@ -9,6 +9,22 @@ Entries are prefixed with the ClickUp task ID.
 
 ### Added
 
+- CU-123x5y65hfj: Two new fields on Item Attribute: Show on Customer Documents
+  and Show on Production Documents (nl-BE: Tonen op klantdocumenten, Tonen op
+  productiedocumenten). New item attributes get Yes for both. The fields can be
+  edited on the Item Attributes list and the Item Attribute card. No report or
+  document layout uses them yet. See
+  [docs/features/CU-123x5y65hfj-item-attribute-print-settings.md](docs/features/CU-123x5y65hfj-item-attribute-print-settings.md).
+- CU-123x5y65hfj: On install and upgrade, both fields are set to Yes on all item
+  attributes that already exist. This runs once per company (upgrade tag
+  `ATT-CU-123x5y65hfj-ItemAttrPrintSettings-20261019`); attributes you set to No
+  afterwards are not reset by later upgrades. If you uninstall the app without
+  clearing its data and reinstall it, item attributes created in the meantime
+  read No for both fields and are not fixed automatically; set them manually.
+- CU-123x5y65hfj: Internal codeunits 50102 `ATT Install`, 50103 `ATT Upgrade`
+  and 50104 `ATT Upgrade Mgt.`, added to permission set `ATT CUSTOM`. The test
+  app `Customer Extensions Test` is added to `internalsVisibleTo` in `app.json`
+  (compiler warning PTE0012, accepted).
 - CU-123x5y65gje: New table 50100 `ATT Document Line Attribute` that stores item
   attributes per document line for Sales Line, Sales Line Archive, Sales Shipment
   Line, Sales Invoice Line, Sales Cr.Memo Line and Return Receipt Line. Value and
@@ -36,6 +52,14 @@ Entries are prefixed with the ClickUp task ID.
 
 ### Changed
 
+- CU-123x5y65hfj: Validating Attribute ID on a document line attribute now copies
+  Show on Customer Documents and Show on Production Documents from the Item
+  Attribute; Attribute ID 0 sets both to No. The values are a snapshot: later
+  changes on the Item Attribute do not change existing line attributes, and
+  archiving, posting and `CopyAttributes` keep the line's own values. Validating
+  the same Attribute ID again keeps the copied values. Code that creates line
+  attributes must use `Validate("Attribute ID", Value)`; after a direct
+  assignment, `Validate("Attribute ID")` copies nothing and both fields stay No.
 - CU-123x5y65gje: `DeleteAll` on Sales Line, Sales Line Archive, Sales Shipment
   Line, Sales Invoice Line, Sales Cr.Memo Line and Return Receipt Line now runs
   row by row because of the new delete subscribers. Bulk deletes on these tables

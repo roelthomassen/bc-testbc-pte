@@ -1,13 +1,15 @@
 namespace Attitutor.CustomerExtensions.Test.DocumentLineAttribute;
 
 using Attitutor.CustomerExtensions.DocumentLineAttribute;
+using Attitutor.CustomerExtensions.Upgrade;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.TestLibraries.Utilities;
 
 /// <summary>
 /// Tests that the ATT CUSTOM permission set of the Customer Extensions app gives full access to the document line attribute
-/// objects, and that every object of the app is in it (CU-123x5y65gje, permission set rule of the project).
+/// objects and the install and upgrade codeunits, and that every object of the app is in it (CU-123x5y65gje, CU-123x5y65hfj,
+/// permission set rule of the project).
 /// </summary>
 /// <remarks>
 /// These tests read the permission set metadata instead of running code with lowered permissions, because
@@ -33,8 +35,6 @@ codeunit 50153 "ATT Doc. Line Attr. Perm. Test"
         ObjectsMissingFromPermissionSetMsg: Label 'These objects of the Customer Extensions app are missing from ATT CUSTOM or lack full permissions: %1', Comment = '%1 = list of object types and IDs';
         PermissionSetNotAssignableMsg: Label 'ATT CUSTOM must be assignable.';
         ObjectEntryTxt: Label '%1 %2', Locked = true;
-        DocLineAttrSubscrNameTxt: Label 'ATT Doc. Line Attr. Subscr.', Locked = true;
-        AppCodeunitNotFoundErr: Label 'Codeunit %1 of the Customer Extensions app was not found.', Comment = '%1 = codeunit name';
 
     [Test]
     procedure ATTCustomPermissionSet_IsAssignable()
@@ -110,7 +110,55 @@ codeunit 50153 "ATT Doc. Line Attr. Perm. Test"
 
         // [GIVEN] The ATT CUSTOM permission set
         // [WHEN] Its permission on the ATT Doc. Line Attr. Subscr. codeunit is read
-        FindPermission(MetadataPermission, MetadataPermission."Object Type"::Codeunit, GetAppCodeunitId(DocLineAttrSubscrNameTxt));
+        FindPermission(MetadataPermission, MetadataPermission."Object Type"::Codeunit, Codeunit::"ATT Doc. Line Attr. Subscr.");
+
+        // [THEN] It is X
+        AssertExecutePermission(MetadataPermission);
+    end;
+
+    [Test]
+    procedure ATTCustomPermissionSet_GrantsExecuteOnInstall()
+    var
+        MetadataPermission: Record "Metadata Permission";
+    begin
+        // [SCENARIO] ATT CUSTOM gives execute permission on the ATT Install codeunit.
+        Initialize();
+
+        // [GIVEN] The ATT CUSTOM permission set
+        // [WHEN] Its permission on the ATT Install codeunit is read
+        FindPermission(MetadataPermission, MetadataPermission."Object Type"::Codeunit, Codeunit::"ATT Install");
+
+        // [THEN] It is X
+        AssertExecutePermission(MetadataPermission);
+    end;
+
+    [Test]
+    procedure ATTCustomPermissionSet_GrantsExecuteOnUpgrade()
+    var
+        MetadataPermission: Record "Metadata Permission";
+    begin
+        // [SCENARIO] ATT CUSTOM gives execute permission on the ATT Upgrade codeunit.
+        Initialize();
+
+        // [GIVEN] The ATT CUSTOM permission set
+        // [WHEN] Its permission on the ATT Upgrade codeunit is read
+        FindPermission(MetadataPermission, MetadataPermission."Object Type"::Codeunit, Codeunit::"ATT Upgrade");
+
+        // [THEN] It is X
+        AssertExecutePermission(MetadataPermission);
+    end;
+
+    [Test]
+    procedure ATTCustomPermissionSet_GrantsExecuteOnUpgradeMgt()
+    var
+        MetadataPermission: Record "Metadata Permission";
+    begin
+        // [SCENARIO] ATT CUSTOM gives execute permission on the ATT Upgrade Mgt. codeunit.
+        Initialize();
+
+        // [GIVEN] The ATT CUSTOM permission set
+        // [WHEN] Its permission on the ATT Upgrade Mgt. codeunit is read
+        FindPermission(MetadataPermission, MetadataPermission."Object Type"::Codeunit, Codeunit::"ATT Upgrade Mgt.");
 
         // [THEN] It is X
         AssertExecutePermission(MetadataPermission);
@@ -203,20 +251,6 @@ codeunit 50153 "ATT Doc. Line Attr. Perm. Test"
                 if not HasFullTableDataPermission(AppObject."Object ID") then
                     AddMissingObject(MissingObjects, Format(ExpandedPermission."Object Type"::"Table Data"), AppObject."Object ID");
         until AppObject.Next() = 0;
-    end;
-
-    local procedure GetAppCodeunitId(CodeunitName: Text): Integer
-    var
-        AppObject: Record AllObj;
-    begin
-        // The codeunit is internal to the Customer Extensions app, so it cannot be referenced by name from this app.
-        SetAppObjectFilter(AppObject);
-        AppObject.SetRange("Object Type", AppObject."Object Type"::Codeunit);
-        AppObject.SetRange("Object Name", CodeunitName);
-        AppObject.SetLoadFields("Object ID");
-        if not AppObject.FindFirst() then
-            Error(AppCodeunitNotFoundErr, CodeunitName);
-        exit(AppObject."Object ID");
     end;
 
     local procedure SetAppObjectFilter(var AppObject: Record AllObj)
