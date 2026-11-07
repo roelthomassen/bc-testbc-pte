@@ -111,6 +111,28 @@ codeunit 50154 "ATT Test Library"
     end;
 
     /// <summary>
+    /// Creates an item category with a unique code.
+    /// </summary>
+    /// <param name="ItemCategory">Returns the created item category.</param>
+    procedure CreateItemCategory(var ItemCategory: Record "Item Category")
+    begin
+        ItemCategory.Init();
+        ItemCategory.Validate(Code, GenerateUniqueCode());
+        ItemCategory.Insert(true);
+    end;
+
+    /// <summary>
+    /// Sets the item category of an item.
+    /// </summary>
+    /// <param name="Item">The item to set the category on. Returns the item as it was after the change.</param>
+    /// <param name="CategoryCode">The code of the item category.</param>
+    procedure SetItemCategory(var Item: Record Item; CategoryCode: Code[20])
+    begin
+        Item.Validate("Item Category Code", CategoryCode);
+        Item.Modify(true);
+    end;
+
+    /// <summary>
     /// Creates a customer that can be invoiced, with the library's posting groups.
     /// </summary>
     /// <param name="Customer">Returns the created customer.</param>

@@ -297,6 +297,294 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ATT CUSTOM - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1449147706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resulting Order Attribute Setting</source>
+          <target state="translated">Resulterende orderkenmerkinstelling</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1692399443 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item attribute.</source>
+          <target state="translated">Hiermee wordt het artikelkenmerk opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Attribute ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target state="translated">Kenmerk-id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 2006108605 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item attribute.</source>
+          <target state="translated">Hiermee wordt de naam van het artikelkenmerk opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Attribute Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 2006108605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute</source>
+          <target state="translated">Kenmerk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Attribute Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 2913739292 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default value of the attribute.</source>
+          <target state="translated">Hiermee wordt de standaardwaarde van het kenmerk opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Default Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 2913739292 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Value</source>
+          <target state="translated">Standaardwaarde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Default Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1789400218 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item or item category that this attribute's setting comes from.</source>
+          <target state="translated">Hiermee wordt het artikel of de artikelcategorie opgegeven waar de instelling van dit kenmerk van komt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Level - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1789400218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Level</source>
+          <target state="translated">Niveau</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1461151337 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute must have a value on the sales line.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk een waarde moet hebben op de verkooplijn.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Mandatory - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1461151337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mandatory</source>
+          <target state="translated">Verplicht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Mandatory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 4154341761 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order in which the attribute is shown on the sales line.</source>
+          <target state="translated">Hiermee wordt de volgorde opgegeven waarin het kenmerk op de verkooplijn wordt getoond.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Sequence - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 4154341761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence</source>
+          <target state="translated">Volgorde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Sequence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1147795478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute is shown on documents for the customer.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op documenten voor de klant.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Show on Customer Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 1147795478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show on Customer Documents</source>
+          <target state="translated">Tonen op klantdocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Show on Customer Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 4065503215 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the attribute is shown on production documents.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op productiedocumenten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Show on Production Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1449147706 - Field 4065503215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show on Production Documents</source>
+          <target state="translated">Tonen op productiedocumenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ATT Res. Order Attr. Setting - Field Show on Production Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215587416 - NamedType 2599073142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The item category structure is not valid: %1 is a parent of itself or of one of its children.</source>
+          <target state="translated">De structuur van de artikelcategorieen is niet geldig: %1 is een bovenliggende categorie van zichzelf of van een van zijn onderliggende categorieen.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = item category code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ATT Order Attr. Setting Mgt. - NamedType CyclicCategoryErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215587416 - NamedType 2596381013" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item category %1</source>
+          <target state="translated">Artikelcategorie %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = item category code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ATT Order Attr. Setting Mgt. - NamedType ItemCategoryLevelTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215587416 - NamedType 2680572533" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item</source>
+          <target state="translated">Artikel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ATT Order Attr. Setting Mgt. - NamedType ItemLevelTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 1540070058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Attribute Settings</source>
+          <target state="translated">Orderkenmerkinstellingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ATT Order Attribute Settings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1540070058 - Control 732681528 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute</source>
+          <target state="translated">Kenmerk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ATT Order Attribute Settings - Control Item Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1966961287 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resulting Order Attribute Settings</source>
+          <target state="translated">Resulterende orderkenmerkinstellingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ATT Res. Order Attr. Settings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 983634012 - Action 1540070058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>View or edit the order attribute settings (mandatory, sequence, not applicable, print settings) of this item.</source>
+          <target state="translated">Hiermee bekijkt of bewerkt u de orderkenmerkinstellingen (verplicht, volgorde, niet van toepassing, afdrukinstellingen) van dit artikel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Card - Action ATT Order Attribute Settings - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 983634012 - Action 1540070058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Orderkenmerken</source>
+          <target state="translated">Orderkenmerken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Card - Action ATT Order Attribute Settings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 983634012 - Action 3120511839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Show the resulting order attribute setting of this item: the attributes from the item and its item category chain, with the setting of the closest level.</source>
+          <target state="translated">Hiermee toont u de resulterende orderkenmerkinstelling van dit artikel: de kenmerken van het artikel en de keten van artikelcategorieen, met de instelling van het dichtstbijzijnde niveau.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Card - Action ATT Show Resulting Setting - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 983634012 - Action 3120511839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Resulterende instelling tonen</source>
+          <target state="translated">Resulterende instelling tonen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Card - Action ATT Show Resulting Setting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4156638468 - Action 1540070058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 964092419">
+          <source>View or edit the order attribute settings (mandatory, sequence, not applicable, print settings) of this item category.</source>
+          <target state="translated">Hiermee bekijkt of bewerkt u de orderkenmerkinstellingen (verplicht, volgorde, niet van toepassing, afdrukinstellingen) van deze artikelcategorie.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Category Card - Action ATT Order Attribute Settings - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4156638468 - Action 1540070058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 964092419">
+          <source>Orderkenmerken</source>
+          <target state="translated">Orderkenmerken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ATT Item Category Card - Action ATT Order Attribute Settings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - NamedType 2169631012" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 793973962">
+          <source>contains the value %1, which is not a valid date value for attribute %2.</source>
+          <target state="translated">bevat de waarde %1, wat geen geldige datumwaarde is voor kenmerk %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = entered value, %2 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - NamedType InvalidDateDefaultValueErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - NamedType 3948584225" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 793973962">
+          <source>contains the value %1, which is not a valid decimal value for attribute %2.</source>
+          <target state="translated">bevat de waarde %1, wat geen geldige decimale waarde is voor kenmerk %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = entered value, %2 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - NamedType InvalidDecimalDefaultValueErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - NamedType 856317094" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 793973962">
+          <source>contains the value %1, which is not a valid integer value for attribute %2.</source>
+          <target state="translated">bevat de waarde %1, wat geen geldige geheeltallige waarde is voor kenmerk %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = entered value, %2 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - NamedType InvalidIntegerDefaultValueErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - NamedType 4176684353" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 793973962">
+          <source>contains the value %1, which is not an existing value of Option attribute %2.</source>
+          <target state="translated">bevat de waarde %1, wat geen bestaande waarde is van optiekenmerk %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = entered value, %2 = item attribute name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - NamedType InvalidOptionDefaultValueErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 1111953243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies if the attribute is shown on documents for the customer. Leave blank to use the item attribute's own setting.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op documenten voor de klant. Laat dit leeg om de eigen instelling van het artikelkenmerk te gebruiken.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Cust. Docs Override - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 1111953243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Show on Customer Documents (Override)</source>
+          <target state="translated">Tonen op klantdocumenten (overschrijving)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Cust. Docs Override - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 3335606563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies the default value of the attribute at this level. The value must match the type of the item attribute.</source>
+          <target state="translated">Hiermee wordt de standaardwaarde van het kenmerk op dit niveau opgegeven. De waarde moet overeenkomen met het type van het artikelkenmerk.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Default Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 3335606563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Default Value</source>
+          <target state="translated">Standaardwaarde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Default Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 2135133730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies if the attribute must have a value on the sales line.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk een waarde moet hebben op de verkooplijn.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Mandatory - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 2135133730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Mandatory</source>
+          <target state="translated">Verplicht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Mandatory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 836685219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies that the attribute does not apply at this level, even if it is set on a less specific level.</source>
+          <target state="translated">Hiermee wordt opgegeven dat het kenmerk niet van toepassing is op dit niveau, ook al is het ingesteld op een minder specifiek niveau.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Not Applicable - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 836685219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Not Applicable</source>
+          <target state="translated">Niet van toepassing</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Not Applicable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 3074884987 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies if the attribute is shown on production documents. Leave blank to use the item attribute's own setting.</source>
+          <target state="translated">Hiermee wordt opgegeven of het kenmerk wordt getoond op productiedocumenten. Laat dit leeg om de eigen instelling van het artikelkenmerk te gebruiken.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Prod. Docs Override - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 3074884987 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Show on Production Documents (Override)</source>
+          <target state="translated">Tonen op productiedocumenten (overschrijving)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Prod. Docs Override - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 1467994594 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Specifies the order in which the attribute is shown on the sales line.</source>
+          <target state="translated">Hiermee wordt de volgorde opgegeven waarin het kenmerk op de verkooplijn wordt getoond.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Sequence - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 793973962 - Field 1467994594 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 160615218">
+          <source>Sequence</source>
+          <target state="translated">Volgorde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ATT Item Attr. Value Mapping - Field ATT Sequence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2008551466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Override Option</source>
+          <target state="translated">Overschrijvingsoptie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Override Option - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2008551466 - EnumValue 949215307 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">Nee</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Override Option - EnumValue No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2008551466 - EnumValue 1517371649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Ja</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum ATT Override Option - EnumValue Yes - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>

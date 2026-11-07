@@ -9,6 +9,30 @@ Entries are prefixed with the ClickUp task ID.
 
 ### Added
 
+- CU-123x5y65qpa: Administrators can now configure order attribute settings
+  (mandatory, sequence, default value, not applicable, and overrides of the
+  print settings) per item category or per item, through a new
+  **Orderkenmerken** action on the Item Category Card and the Item Card. The
+  settings are added to the standard `Item Attribute Value Mapping` table
+  (table extension 50101 `ATT Item Attr. Value Mapping`) rather than a new
+  table. See
+  [docs/features/CU-123x5y65qpa-order-attribute-settings.md](docs/features/CU-123x5y65qpa-order-attribute-settings.md).
+- CU-123x5y65qpa: A new **Resulterende instelling tonen** action on the Item
+  Card computes and shows the resulting order attribute setting of an item:
+  for each attribute, the setting of the closest level wins (the item itself,
+  then its item category, then each ancestor category, walked as far as the
+  Parent Category chain goes); an attribute marked Not Applicable at a closer
+  level is dropped entirely. New codeunit 50105
+  `ATT Order Attr. Setting Mgt.` with public procedure `GetResultingSetting`.
+- CU-123x5y65qpa: A default value entered on an order attribute setting row is
+  now validated against the item attribute's type (Option, Decimal, Integer,
+  Date, Text) and rejected if it does not match an existing option value or
+  does not parse as that type; new field `ATT Default Value` on the mapping
+  row. New enum 50101 `ATT Override Option` for the tri-state (blank/Yes/No)
+  print-setting overrides.
+- CU-123x5y65qpa: This feature is master data only; nothing yet creates or
+  refreshes line attributes on a sales line from the resulting setting — that
+  is a separate, follow-up task.
 - CU-123x5y65hfj: Two new fields on Item Attribute: Show on Customer Documents
   and Show on Production Documents (nl-BE: Tonen op klantdocumenten, Tonen op
   productiedocumenten). New item attributes get Yes for both. The fields can be
