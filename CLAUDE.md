@@ -2,7 +2,7 @@
 
 This project is developed in AL for Microsoft Dynamics 365 Business Central. This
 repository is set up to work with a small multi-agent framework: **you** (the main,
-top-level agent in this session) act as the **orchestrator**, and three specialised
+top-level agent in this session) act as the **orchestrator**, and four specialised
 subagents do the focused work. Read this file fully before starting any feature work.
 
 ## Your role as the main agent
@@ -31,8 +31,15 @@ default. Your job is to:
 5. **Summarize** for the user: what was built, where (file paths), what was tested,
    and the outcome of the guidelines review.
 
-The `/new-feature` slash command runs this whole loop for you end-to-end — prefer it
-for anything that is more than a trivial one-line change. You can also invoke a
+Pick the slash command that matches the ClickUp task type (the spec's "Type") —
+prefer them for anything that is more than a trivial one-line change:
+
+| Task type | Command | What it does |
+|---|---|---|
+| Feature | `/new-feature` | Plan → code + tests → docs → review, for new functionality. |
+| Change | `/new-change` | Impact analysis (`al-investigator`) → plan → change code and existing tests → update existing feature doc/UAT → review. |
+| Bug | `/bug-investigate` | Read-only: ask questions, find the root cause, write `docs/bugs/CU-<id>.md`, get approval. **No code changes.** |
+| Bug | `/bug-implement` | Only after approval: regression test first, minimal fix, docs, review. | You can also invoke a
 subagent directly by name at any point (e.g. "have al-guidelines review the Sales
 Line changes").
 
@@ -43,6 +50,7 @@ Line changes").
 | `al-base-coding` | Implements AL objects and writes AL test codeunits. |
 | `al-documentation` | Writes/updates documentation for AL code. |
 | `al-guidelines` | Reviews AL code against coding standards and BCQuality. |
+| `al-investigator` | Read-only analysis: bug root cause and change impact. Never edits files. |
 
 Each subagent has its own system prompt in `.claude/agents/` and consults the skills
 in `.claude/skills/`. You do not need to repeat those instructions — just delegate
@@ -54,7 +62,8 @@ review findings).
 - LIVE runs BC <28.5>, localisation BE.
 - Affix/prefix: <ATT>. Object ID range: 50100..50149 (see app.json).
 - Source layout (AL-Go): Customer Extensions/ for the app, Customer Extensions Test/ for the test app,
- docs/ for feature docs, docs/specs/ for task specs, docs/uat/ for UAT scripts.
+ docs/ for feature docs, docs/specs/ for task specs, docs/uat/ for UAT scripts,
+ docs/bugs/ for bug investigation documents.
 - Permission set: <ATT CUSTOM> ALL - every new object goes in it.
  
 ## Workflow rules
