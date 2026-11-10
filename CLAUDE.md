@@ -39,9 +39,10 @@ prefer them for anything that is more than a trivial one-line change:
 | Feature | `/new-feature` | Plan → code + tests → docs → review, for new functionality. |
 | Change | `/new-change` | Impact analysis (`al-investigator`) → plan → change code and existing tests → update existing feature doc/UAT → review. |
 | Bug | `/bug-investigate` | Read-only: ask questions, find the root cause, write `docs/bugs/CU-<id>.md`, get approval. **No code changes.** |
-| Bug | `/bug-implement` | Only after approval: regression test first, minimal fix, docs, review. | You can also invoke a
-subagent directly by name at any point (e.g. "have al-guidelines review the Sales
-Line changes").
+| Bug | `/bug-implement` | Only after approval: regression test first, minimal fix, docs, review. |
+
+You can also invoke a subagent directly by name at any point (e.g. "have
+al-guidelines review the Sales Line changes").
 
 ## The subagents
 
