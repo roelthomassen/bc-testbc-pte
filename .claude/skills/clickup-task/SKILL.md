@@ -13,7 +13,12 @@ Code Review, On TEST, Rework, Accepted, On LIVE, Closed.
 1. Fetch the task, its custom fields and comments via the ClickUp MCP server.
 2. Write docs/specs/CU-<id>.md with the sections: Business need,
   Acceptance criteria (numbered, testable), Type (Feature/Change/Bug),
-  Open questions, Plan (empty - filled after approval in /new-feature).
+  Open questions, Plan (empty - filled after approval in /new-feature or
+  /new-change; for a Bug the investigation goes to docs/bugs/CU-<id>.md).
+  For a Change, also record which existing feature (CU id / feature doc) it
+  changes, if the task says so.
+  Then suggest the next command for the Type: Feature → /new-feature,
+  Change → /new-change, Bug → /bug-investigate.
 3. Check that the current git branch name contains CU-<id>; warn if not
   and do not continue until the user confirms.
 4. Set the status to "In Development" and post a comment with the branch name.
